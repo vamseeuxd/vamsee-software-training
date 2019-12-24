@@ -1,0 +1,5 @@
+.app-side-menu{
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  width: 350px;
+}

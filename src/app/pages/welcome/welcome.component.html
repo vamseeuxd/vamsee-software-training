@@ -1,0 +1,9 @@
+<form class="col-4 offset-4 mt-5">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of items$|async">{{item.name}}</li>
+  </ul>
+
+</form>
+<!--
+for i in pages/buffer  pages/bufferCount  pages/bufferTime  pages/bufferToggle  pages/bufferWhen  pages/concatMap  pages/concatMapTo  pages/exhaust  pages/exhaustMap  pages/expand  pages/groupBy  pages/map  pages/mapTo  pages/mergeMap  pages/mergeMapTo  pages/mergeScan  pages/pairwise  pages/partition  pages/pluck  pages/scan  pages/switchMap  pages/switchMapTo  pages/window  pages/windowCount  pages/windowTime  pages/windowToggle  pages/windowWhen; do ng g c "${i}"; done
+-->

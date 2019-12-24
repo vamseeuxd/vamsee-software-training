@@ -1,0 +1,27 @@
+<ul class="list-group bg-light">
+  <li class="list-group-item mb-1 pl-2 pr-2"
+      style="cursor:pointer;overflow-y:auto"
+      [class.bg-secondary]="isSelected(menu) || ( isChildSelected( menu.subMenu, activeMenu ) && !isMenuOpen(menu) )"
+      [class.font-weight-normal]="( !isChildSelected( menu.subMenu, activeMenu ) || !isMenuOpen(menu) )"
+      [class.text-white]="isSelected(menu) || ( isChildSelected( menu.subMenu, activeMenu ) && !isMenuOpen(menu) )"
+      (click)="toggleMenu(menu,$event)"
+      *ngFor="let menu of menuDataProvider;">
+    {{menu.name}}
+    <ng-container *ngIf="isMenu(menu)">
+
+      <i class="float-right fa fa-folder" *ngIf="!isMenuOpen(menu)"></i>
+      <i class="float-right fa fa-folder-open" *ngIf="isMenuOpen(menu)"></i>
+
+      <div class="clearfix"></div>
+
+      <app-side-menu class="d-block mt-3"
+                     *ngIf="isMenuOpen(menu)"
+                     [(activeMenu)]="activeMenu"
+                     [isRoot]="false"
+                     (activeMenuChange)="activeMenuChange.emit($event)"
+                     [menuDataProvider]="menu.subMenu"></app-side-menu>
+
+    </ng-container>
+  </li>
+
+</ul>
