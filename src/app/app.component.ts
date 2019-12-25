@@ -12,164 +12,172 @@ import {TitleService} from './service/title.service';
 export class AppComponent implements OnInit {
   showSideMenu = true;
   menuData: MenuInterface[] = [
-    {id: 'welcome', name: 'Welcome'},
-    {id: 'observable', name: 'Observable', subMenu: []},
-    {id: 'subscription', name: 'Subscription', subMenu: []},
-    {id: 'subject', name: 'Subject', subMenu: []},
-    {id: 'scheduler', name: 'Scheduler', subMenu: []},
+    {id: 'html', name: 'HTML', subMenu: []},
+    {id: 'css', name: 'CSS', subMenu: []},
+    {id: 'javaScript', name: 'Java Script', subMenu: []},
+    {id: 'typeScript', name: 'Type Script', subMenu: []},
     {
-      id: 'operators', name: 'Operators', subMenu: [
-        {id: 'piping', name: 'Piping'},
-        {id: 'higherOrderObservables', name: 'Higher-order Observables'},
-        {id: 'marbleDiagrams', name: 'Marble diagrams'},
+      id: 'rxjs', name: 'RXJS', subMenu: [
+        {id: 'rxjs-welcome', name: 'Welcome'},
+        {id: 'rxjs-observable', name: 'Observable', subMenu: []},
+        {id: 'rxjs-subscription', name: 'Subscription', subMenu: []},
+        {id: 'rxjs-subject', name: 'Subject', subMenu: []},
+        {id: 'rxjs-scheduler', name: 'Scheduler', subMenu: []},
         {
-          id: 'creationOperators', name: 'Creation Operators', subMenu: [
-            {id: 'ajax', name: 'ajax'},
-            {id: 'bindCallback', name: 'bindCallback'},
-            {id: 'bindNodeCallback', name: 'bindNodeCallback'},
-            {id: 'defer', name: 'defer'},
-            {id: 'empty', name: 'empty'},
-            {id: 'from', name: 'from'},
-            {id: 'fromEvent', name: 'fromEvent'},
-            {id: 'fromEventPattern', name: 'fromEventPattern'},
-            {id: 'generate', name: 'generate'},
-            {id: 'interval', name: 'interval'},
-            {id: 'of', name: 'of'},
-            {id: 'range', name: 'range'},
-            {id: 'throwError', name: 'throwError'},
-            {id: 'timer', name: 'timer'},
-            {id: 'iif', name: 'iif'},
-          ]
-        },
-        {
-          id: 'joinCreationOperators', name: 'Join Creation Operators', subMenu: [
-            {id: 'combineLatest', name: 'combineLatest'},
-            {id: 'concat', name: 'concat'},
-            {id: 'forkJoin', name: 'forkJoin'},
-            {id: 'merge', name: 'merge'},
-            {id: 'race', name: 'race'},
-            {id: 'zip', name: 'zip'},
-          ]
-        },
-        {
-          id: 'filteringOperators', name: 'Filtering Operators', subMenu: [
-            {id: 'audit', name: 'audit'},
-            {id: 'auditTime', name: 'auditTime'},
-            {id: 'debounce', name: 'debounce'},
-            {id: 'debounceTime', name: 'debounceTime'},
-            {id: 'distinct', name: 'distinct'},
-            {id: 'distinctKey', name: 'distinctKey'},
-            {id: 'distinctUntilChanged', name: 'distinctUntilChanged'},
-            {id: 'distinctUntilKeyChanged', name: 'distinctUntilKeyChanged'},
-            {id: 'elementAt', name: 'elementAt'},
-            {id: 'filter', name: 'filter'},
-            {id: 'first', name: 'first'},
-            {id: 'ignoreElements', name: 'ignoreElements'},
-            {id: 'last', name: 'last'},
-            {id: 'sample', name: 'sample'},
-            {id: 'sampleTime', name: 'sampleTime'},
-            {id: 'single', name: 'single'},
-            {id: 'skip', name: 'skip'},
-            {id: 'skipLast', name: 'skipLast'},
-            {id: 'skipUntil', name: 'skipUntil'},
-            {id: 'skipWhile', name: 'skipWhile'},
-            {id: 'take', name: 'take'},
-            {id: 'takeLast', name: 'takeLast'},
-            {id: 'takeUntil', name: 'takeUntil'},
-            {id: 'takeWhile', name: 'takeWhile'},
-            {id: 'throttle', name: 'throttle'},
-            {id: 'throttleTime', name: 'throttleTime'},
-          ]
-        },
-        {
-          id: 'joinOperators', name: 'Join Operators', subMenu: [
-            {id: 'combineAll', name: 'combineAll'},
-            {id: 'concatAll', name: 'concatAll'},
-            {id: 'exhaust', name: 'exhaust'},
-            {id: 'mergeAll', name: 'mergeAll'},
-            {id: 'startWith', name: 'startWith'},
-            {id: 'withLatestFrom', name: 'withLatestFrom'},
-          ]
-        },
-        {
-          id: 'multicastingOperators', name: 'Multicasting Operators', subMenu: [
-            {id: 'multicast', name: 'multicast'},
-            {id: 'publish', name: 'publish'},
-            {id: 'publishBehavior', name: 'publishBehavior'},
-            {id: 'publishLast', name: 'publishLast'},
-            {id: 'publishReplay', name: 'publishReplay'},
-            {id: 'share', name: 'share'},
-          ]
-        },
-        {
-          id: 'error HandlingOperators', name: 'Error Handling Operators', subMenu: [
-            {id: 'catchError', name: 'catchError'},
-            {id: 'retry', name: 'retry'},
-            {id: 'retryWhen', name: 'retryWhen'},
-          ]
-        },
-        {
-          id: 'utilityOperators', name: 'Utility Operators', subMenu: [
-            {id: 'tap', name: 'tap'},
-            {id: 'delay', name: 'delay'},
-            {id: 'delayWhen', name: 'delayWhen'},
-            {id: 'dematerialize', name: 'dematerialize'},
-            {id: 'materialize', name: 'materialize'},
-            {id: 'observeOn', name: 'observeOn'},
-            {id: 'subscribeOn', name: 'subscribeOn'},
-            {id: 'timeInterval', name: 'timeInterval'},
-            {id: 'timestamp', name: 'timestamp'},
-            {id: 'timeout', name: 'timeout'},
-            {id: 'timeoutWith', name: 'timeoutWith'},
-            {id: 'toArray', name: 'toArray'},
-          ]
-        },
-        {
-          id: 'conditionalSndBooleanOperators', name: 'Conditional and Boolean Operators', subMenu: [
-            {id: 'defaultIfEmpty', name: 'defaultIfEmpty'},
-            {id: 'every', name: 'every'},
-            {id: 'find', name: 'find'},
-            {id: 'findIndex', name: 'findIndex'},
-            {id: 'isEmpty', name: 'isEmpty'},
-          ]
-        },
-        {
-          id: 'mathematicalAndAggregateOperators', name: 'Mathematical and Aggregate Operators', subMenu: [
-            {id: 'count', name: 'count'},
-            {id: 'max', name: 'max'},
-            {id: 'min', name: 'min'},
-            {id: 'reduce', name: 'reduce'},
-          ]
-        },
-        {
-          id: 'transformationOperators', name: 'Transformation Operators', subMenu: [
-            {id: 'buffer', name: '01. buffer'},
-            {id: 'buffer-count', name: '02. bufferCount'},
-            {id: 'buffer-time', name: '03. bufferTime'},
-            {id: 'buffer-toggle', name: '04. bufferToggle'},
-            {id: 'buffer-when', name: '05. bufferWhen'},
-            {id: 'concat-map', name: '06. concatMap'},
-            {id: 'concat-map-to', name: '07. concatMapTo'},
-            {id: 'exhaust', name: '08. exhaust'},
-            {id: 'exhaust-map', name: '09. exhaustMap'},
-            {id: 'expand', name: '10. expand'},
-            {id: 'group-by', name: '11. groupBy'},
-            {id: 'map', name: '12. map'},
-            {id: 'map-to', name: '13. mapTo'},
-            {id: 'merge-map', name: '14. mergeMap'},
-            {id: 'merge-map-to', name: '15. mergeMapTo'},
-            {id: 'merge-scan', name: '16. mergeScan'},
-            {id: 'pairwise', name: '17. pairwise'},
-            {id: 'partition', name: '18. partition'},
-            {id: 'pluck', name: '19. pluck'},
-            {id: 'scan', name: '20. scan'},
-            {id: 'switch-map', name: '21. switchMap'},
-            {id: 'switch-map-to', name: '22. switchMapTo'},
-            {id: 'window', name: '23. window'},
-            {id: 'window-count', name: '24. windowCount'},
-            {id: 'window-time', name: '25. windowTime'},
-            {id: 'window-toggle', name: '26. windowToggle'},
-            {id: 'window-when', name: '27. windowWhen'},
+          id: 'rxjs-operators', name: 'Operators', subMenu: [
+            {id: 'rxjs-piping', name: 'Piping'},
+            {id: 'rxjs-higherOrderObservables', name: 'Higher-order Observables'},
+            {id: 'rxjs-marbleDiagrams', name: 'Marble diagrams'},
+            {
+              id: 'rxjs-creationOperators', name: 'Creation Operators', subMenu: [
+                {id: 'rxjs-ajax', name: 'ajax'},
+                {id: 'rxjs-bindCallback', name: 'bindCallback'},
+                {id: 'rxjs-bindNodeCallback', name: 'bindNodeCallback'},
+                {id: 'rxjs-defer', name: 'defer'},
+                {id: 'rxjs-empty', name: 'empty'},
+                {id: 'rxjs-from', name: 'from'},
+                {id: 'rxjs-fromEvent', name: 'fromEvent'},
+                {id: 'rxjs-fromEventPattern', name: 'fromEventPattern'},
+                {id: 'rxjs-generate', name: 'generate'},
+                {id: 'rxjs-interval', name: 'interval'},
+                {id: 'rxjs-of', name: 'of'},
+                {id: 'rxjs-range', name: 'range'},
+                {id: 'rxjs-throwError', name: 'throwError'},
+                {id: 'rxjs-timer', name: 'timer'},
+                {id: 'rxjs-iif', name: 'iif'},
+              ]
+            },
+            {
+              id: 'rxjs-joinCreationOperators', name: 'Join Creation Operators', subMenu: [
+                {id: 'rxjs-combineLatest', name: 'combineLatest'},
+                {id: 'rxjs-concat', name: 'concat'},
+                {id: 'rxjs-forkJoin', name: 'forkJoin'},
+                {id: 'rxjs-merge', name: 'merge'},
+                {id: 'rxjs-race', name: 'race'},
+                {id: 'rxjs-zip', name: 'zip'},
+              ]
+            },
+            {
+              id: 'rxjs-filteringOperators', name: 'Filtering Operators', subMenu: [
+                {id: 'rxjs-audit', name: 'audit'},
+                {id: 'rxjs-auditTime', name: 'auditTime'},
+                {id: 'rxjs-debounce', name: 'debounce'},
+                {id: 'rxjs-debounceTime', name: 'debounceTime'},
+                {id: 'rxjs-distinct', name: 'distinct'},
+                {id: 'rxjs-distinctKey', name: 'distinctKey'},
+                {id: 'rxjs-distinctUntilChanged', name: 'distinctUntilChanged'},
+                {id: 'rxjs-distinctUntilKeyChanged', name: 'distinctUntilKeyChanged'},
+                {id: 'rxjs-elementAt', name: 'elementAt'},
+                {id: 'rxjs-filter', name: 'filter'},
+                {id: 'rxjs-first', name: 'first'},
+                {id: 'rxjs-ignoreElements', name: 'ignoreElements'},
+                {id: 'rxjs-last', name: 'last'},
+                {id: 'rxjs-sample', name: 'sample'},
+                {id: 'rxjs-sampleTime', name: 'sampleTime'},
+                {id: 'rxjs-single', name: 'single'},
+                {id: 'rxjs-skip', name: 'skip'},
+                {id: 'rxjs-skipLast', name: 'skipLast'},
+                {id: 'rxjs-skipUntil', name: 'skipUntil'},
+                {id: 'rxjs-skipWhile', name: 'skipWhile'},
+                {id: 'rxjs-take', name: 'take'},
+                {id: 'rxjs-takeLast', name: 'takeLast'},
+                {id: 'rxjs-takeUntil', name: 'takeUntil'},
+                {id: 'rxjs-takeWhile', name: 'takeWhile'},
+                {id: 'rxjs-throttle', name: 'throttle'},
+                {id: 'rxjs-throttleTime', name: 'throttleTime'},
+              ]
+            },
+            {
+              id: 'rxjs-joinOperators', name: 'Join Operators', subMenu: [
+                {id: 'rxjs-combineAll', name: 'combineAll'},
+                {id: 'rxjs-concatAll', name: 'concatAll'},
+                {id: 'rxjs-exhaust', name: 'exhaust'},
+                {id: 'rxjs-mergeAll', name: 'mergeAll'},
+                {id: 'rxjs-startWith', name: 'startWith'},
+                {id: 'rxjs-withLatestFrom', name: 'withLatestFrom'},
+              ]
+            },
+            {
+              id: 'rxjs-multicastingOperators', name: 'Multicasting Operators', subMenu: [
+                {id: 'rxjs-multicast', name: 'multicast'},
+                {id: 'rxjs-publish', name: 'publish'},
+                {id: 'rxjs-publishBehavior', name: 'publishBehavior'},
+                {id: 'rxjs-publishLast', name: 'publishLast'},
+                {id: 'rxjs-publishReplay', name: 'publishReplay'},
+                {id: 'rxjs-share', name: 'share'},
+              ]
+            },
+            {
+              id: 'rxjs-errorHandlingOperators', name: 'Error Handling Operators', subMenu: [
+                {id: 'rxjs-catchError', name: 'catchError'},
+                {id: 'rxjs-retry', name: 'retry'},
+                {id: 'rxjs-retryWhen', name: 'retryWhen'},
+              ]
+            },
+            {
+              id: 'rxjs-utilityOperators', name: 'Utility Operators', subMenu: [
+                {id: 'rxjs-tap', name: 'tap'},
+                {id: 'rxjs-delay', name: 'delay'},
+                {id: 'rxjs-delayWhen', name: 'delayWhen'},
+                {id: 'rxjs-dematerialize', name: 'dematerialize'},
+                {id: 'rxjs-materialize', name: 'materialize'},
+                {id: 'rxjs-observeOn', name: 'observeOn'},
+                {id: 'rxjs-subscribeOn', name: 'subscribeOn'},
+                {id: 'rxjs-timeInterval', name: 'timeInterval'},
+                {id: 'rxjs-timestamp', name: 'timestamp'},
+                {id: 'rxjs-timeout', name: 'timeout'},
+                {id: 'rxjs-timeoutWith', name: 'timeoutWith'},
+                {id: 'rxjs-toArray', name: 'toArray'},
+              ]
+            },
+            {
+              id: 'rxjs-conditionalSndBooleanOperators', name: 'Conditional and Boolean Operators', subMenu: [
+                {id: 'rxjs-defaultIfEmpty', name: 'defaultIfEmpty'},
+                {id: 'rxjs-every', name: 'every'},
+                {id: 'rxjs-find', name: 'find'},
+                {id: 'rxjs-findIndex', name: 'findIndex'},
+                {id: 'rxjs-isEmpty', name: 'isEmpty'},
+              ]
+            },
+            {
+              id: 'rxjs-mathematicalAndAggregateOperators', name: 'Mathematical and Aggregate Operators', subMenu: [
+                {id: 'rxjs-count', name: 'count'},
+                {id: 'rxjs-max', name: 'max'},
+                {id: 'rxjs-min', name: 'min'},
+                {id: 'rxjs-reduce', name: 'reduce'},
+              ]
+            },
+            {
+              id: 'rxjs-transformationOperators', name: 'Transformation Operators', subMenu: [
+                {id: 'rxjs-buffer', name: '01. buffer'},
+                {id: 'rxjs-buffer-count', name: '02. bufferCount'},
+                {id: 'rxjs-buffer-time', name: '03. bufferTime'},
+                {id: 'rxjs-buffer-toggle', name: '04. bufferToggle'},
+                {id: 'rxjs-buffer-when', name: '05. bufferWhen'},
+                {id: 'rxjs-concat-map', name: '06. concatMap'},
+                {id: 'rxjs-concat-map-to', name: '07. concatMapTo'},
+                {id: 'rxjs-exhaust', name: '08. exhaust'},
+                {id: 'rxjs-exhaust-map', name: '09. exhaustMap'},
+                {id: 'rxjs-expand', name: '10. expand'},
+                {id: 'rxjs-group-by', name: '11. groupBy'},
+                {id: 'rxjs-map', name: '12. map'},
+                {id: 'rxjs-map-to', name: '13. mapTo'},
+                {id: 'rxjs-merge-map', name: '14. mergeMap'},
+                {id: 'rxjs-merge-map-to', name: '15. mergeMapTo'},
+                {id: 'rxjs-merge-scan', name: '16. mergeScan'},
+                {id: 'rxjs-pairwise', name: '17. pairwise'},
+                {id: 'rxjs-partition', name: '18. partition'},
+                {id: 'rxjs-pluck', name: '19. pluck'},
+                {id: 'rxjs-scan', name: '20. scan'},
+                {id: 'rxjs-switch-map', name: '21. switchMap'},
+                {id: 'rxjs-switch-map-to', name: '22. switchMapTo'},
+                {id: 'rxjs-window', name: '23. window'},
+                {id: 'rxjs-window-count', name: '24. windowCount'},
+                {id: 'rxjs-window-time', name: '25. windowTime'},
+                {id: 'rxjs-window-toggle', name: '26. windowToggle'},
+                {id: 'rxjs-window-when', name: '27. windowWhen'},
+              ]
+            },
           ]
         },
       ]
